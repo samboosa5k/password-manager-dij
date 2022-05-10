@@ -1,0 +1,12 @@
+.vscode/
+.vs/
+/node_modules
+/public
+.idea/.gitignore
+.idea/compiler.xml
+.idea/DIJ_password-manager_fe-assessment.iml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/codeStyles/codeStyleConfig.xml
+.idea/codeStyles/Project.xml
+.idea/jsLinters/eslint.xml
