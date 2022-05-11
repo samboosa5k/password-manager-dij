@@ -1,8 +1,15 @@
-import { createContext, Dispatch, useContext, useReducer } from 'react';
-
+import {
+  createContext,
+  Dispatch,
+  useContext,
+  useEffect,
+  useReducer
+} from 'react';
 import { IChild } from 'types/common';
 
-import { AppStateDispatchActions } from './appReducerActons';
+import { API_RESULTS, API_URL } from '@constants/api';
+
+import { AppStateActions, AppStateDispatchActions } from './appReducerActons';
 import { appStateReducer } from './appStateReducer';
 import initialAppState, { IAppState } from './initialState';
 
@@ -24,6 +31,14 @@ export const useAppState = () => {
 // Cntext Provider
 const AppStateProvider = ({ children }: IChild) => {
   const [appState, dispatch] = useReducer(appStateReducer, initialAppState);
+
+  useEffect(() => {
+    // Set initial app state
+    dispatch({
+      type: AppStateActions.SET_LOADED_CLIENTS,
+      payload: API_RESULTS
+    });
+  }, []);
 
   return (
     <AppContext.Provider value={{ appState, dispatch }}>

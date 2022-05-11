@@ -7,3 +7,7 @@ export const BlockFill = styled(BaseContainer)`
   position: absolute;
   inset: 0;
 `;
+
+export const Block = styled(BaseContainer)`
+  display: block;
+`;

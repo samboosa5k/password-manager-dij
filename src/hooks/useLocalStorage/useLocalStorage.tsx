@@ -1,15 +1,18 @@
 import { ILocalPassword } from 'types/local-storage';
+
 import { IManageLocalPassword } from './types';
 
 // Getters and settser
 const getLocalPassword = (clientKey: string) => {
   const storageStr = window.localStorage.getItem(clientKey);
-  return storageStr || null;
+  return storageStr;
 };
 
 const setLocalPassword = (clientKey: string, storageStr: string) => {
   window.localStorage.setItem(clientKey, storageStr);
 };
+
+//
 
 // JSON creators
 const createNewPassword = (passwordObj: ILocalPassword) => {
@@ -17,7 +20,7 @@ const createNewPassword = (passwordObj: ILocalPassword) => {
   return JSON.stringify(newArray);
 };
 
-const manageExistingPassword = (
+const addToExistingStorage = (
   storageStr: string,
   passwordObj: ILocalPassword
 ) => {
@@ -32,7 +35,14 @@ const manageExistingPassword = (
  * @returns {void} - Returns nothing
  */
 const useLocalPassword = () => {
-  const manageLocalPassword = ({
+  // Purely for retrieving the local storage string
+  const handleGetPasswords = (clientKey: string) => {
+    const storageStr = getLocalPassword(clientKey);
+    return storageStr;
+  };
+
+  // Purely for adding passwords
+  const handleAddPassword = ({
     clientKey,
     passwordObj
   }: IManageLocalPassword) => {
@@ -44,14 +54,15 @@ const useLocalPassword = () => {
       default:
         setLocalPassword(
           clientKey,
-          manageExistingPassword(storageStr, passwordObj)
+          addToExistingStorage(storageStr, passwordObj)
         );
         break;
     }
   };
 
   return {
-    addPassword: manageLocalPassword
+    addPassword: handleAddPassword,
+    getPasswords: handleGetPasswords
   };
 };
 

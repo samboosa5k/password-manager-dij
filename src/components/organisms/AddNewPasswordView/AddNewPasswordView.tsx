@@ -1,10 +1,11 @@
 import { useCallback, useReducer } from 'react';
 
-import { FormActions } from '@components/organisms/AddNewPasswordView/reducerActions';
 import { FormElemRef } from 'types/events';
 import { INewPasswordState } from 'types/new-passwords';
 
-import { FormBody, formStateReducer } from '.';
+import { FormActions } from '@components/organisms/AddNewPasswordView/reducerActions';
+
+import { FormBody, formStateReducer } from './';
 
 export const initFormState: INewPasswordState = {
   client: '',

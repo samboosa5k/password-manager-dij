@@ -1,10 +1,11 @@
 import { BaseInput } from '@components/atoms';
 import { Card, PasswordInput, TextInput } from '@components/molecules';
 import { useFormValidator } from '@components/organisms/AddNewPasswordView/useFormValidator';
-import clients from '@constants/temp_pastebin.json';
-import { useLocalPassword } from '@hooks/useLocalStorage/useLocalStorage';
 import { Dropdown } from '@molecules/Form/Dropdown';
 import { PasswordRequirements } from '@molecules/Form/PasswordRequirements';
+
+import clients from '@constants/temp_pastebin.json';
+import { useLocalPassword } from '@hooks/useLocalStorage/useLocalStorage';
 import { FormElemRef } from 'types/events';
 import { INewPasswordState } from 'types/new-passwords';
 import { isDefined } from 'utils/value-checks';

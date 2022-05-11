@@ -1,5 +1,5 @@
 import { Boolean3 } from 'types/common';
-import { IlocalPasswords } from 'types/local-storage';
+import { ILocalPassword } from 'types/local-storage';
 
 export interface IClient {
   name: string;
@@ -13,7 +13,7 @@ export interface IAppState {
   clients: IClientList; // from pastebin fetch
   activeData: {
     client: string;
-    localPasswords: IlocalPasswords[] | []; // from local storage
+    localPasswords: ILocalPassword[] | []; // from local storage
   };
 }
 
