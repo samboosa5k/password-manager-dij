@@ -3,4 +3,7 @@ export interface ILocalPassword {
   password: string;
 }
 
-export type IlocalPasswords = ILocalPassword[];
+export interface IClientPasswordList {
+  client: string;
+  localPasswords: ILocalPassword[] | [];
+}

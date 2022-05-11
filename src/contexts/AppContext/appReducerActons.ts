@@ -1,5 +1,5 @@
 import { Boolean3 } from 'types/common';
-import { IlocalPasswords } from 'types/local-storage';
+import { ILocalPassword } from 'types/local-storage';
 
 export enum AppStateActions {
   UPDATE_STATUS,
@@ -28,7 +28,7 @@ type SetActiveClientAction = {
 
 type SetLocalPasswordsAction = {
   type: AppStateActions.LOAD_LOCAL_PASSWORDS;
-  payload: IlocalPasswords[] | [];
+  payload: ILocalPassword[] | [];
 };
 
 export type AppStateDispatchActions =

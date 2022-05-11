@@ -1,5 +1,5 @@
 import { H1, H2 } from '@components/atoms';
-import { BlockFill, FlexColumn } from '@components/molecules/Container';
+import { Block, BlockFill, FlexColumn } from '@components/molecules/Container';
 import { IChild } from 'types/common';
 
 interface IPageProps extends IChild {
@@ -8,21 +8,19 @@ interface IPageProps extends IChild {
 
 const DefaultPage = ({ children, title }: IPageProps) => {
   return (
-    <FlexColumn
+    <Block
       position="relative"
-      flex="1"
-      backgroundColor="var(--gray-400)"
+      width="100%"
+      height="100%"
+      backgroundColor="var(--gray-900)"
       alignItems="center"
       justifyContent="center"
-      margin="1em">
-      <BlockFill
-        padding="1em"
-        backgroundColor="var(--white)"
-        border="1px solid var(--gray-200)">
-        <H1>{title}</H1>
+      margin="0">
+      <BlockFill backgroundColor="var(--gray-900)" margin="1em">
+        {/* <H1>{title}</H1> */}
         {children}
       </BlockFill>
-    </FlexColumn>
+    </Block>
   );
 };
 

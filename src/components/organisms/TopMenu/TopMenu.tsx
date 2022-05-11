@@ -1,15 +1,10 @@
-import { H2, SPAN } from '@components/atoms';
-import { FlexRow } from '@molecules/Container';
+import { H2 } from '@components/atoms';
+import { FlexColumn } from '@molecules/Container';
 
-export const TopMenu = ({ banner }: { banner: string }) => {
+export const TopMenu = () => {
   return (
-    <FlexRow flex="0" backgroundColor="black" padding="1em">
-      <H2 as="h2" color="white">
-        DIJ Password Manager
-      </H2>
-      <SPAN as="span" color="white">
-        {banner}
-      </SPAN>
-    </FlexRow>
+    <FlexColumn position="relative" backgroundColor="black" padding="1em">
+      <H2 color="white">DIJ Password Manager</H2>
+    </FlexColumn>
   );
 };

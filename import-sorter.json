@@ -1,0 +1,47 @@
+{
+  "generalConfiguration.sortOnBeforeSave": true,
+  "importSorter.sortConfiguration": {
+    "customOrderingRules": {
+      "rules": [
+        {
+          "disableSort": true,
+          "orderLevel": 1,
+          "regex": "^$",
+          "type": "importMember"
+        },
+        {
+          "disableSort": true,
+          "orderLevel": 2,
+          "regex": "react"
+        },
+        {
+          "disableSort": true,
+          "orderLevel": 3,
+          "regex": "^styled-components$",
+          "type": "importMember"
+        },
+        {
+          "disableSort": true,
+          "orderLevel": 4,
+          "regex": "^types",
+          "type": "importMember"
+        },
+        {
+          "disableSort": true,
+          "orderLevel": 5,
+          "regex": "@components|@molecules|@organisms|@templates"
+        },
+        {
+          "orderLevel": 40,
+          "regex": "^[.]"
+        }
+      ]
+    }
+  },
+  "importStringConfiguration": {
+    "maximumNumberOfImportExpressionsPerLine.count": 80,
+    "maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+    "quoteMark": "single",
+    "tabSize": 2
+  }
+}
