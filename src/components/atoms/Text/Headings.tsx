@@ -23,7 +23,7 @@ export const H2 = styled.h2<IColor>`
 export const H3 = styled.h3<IColor>`
   font-size: ${({ fontSize }) => fontSize || '1em'};
   font-weight: ${({ fontWeight }) => fontWeight || 'bold'};
-  margin: 0.2em 0;
+  margin: auto;
   // text-transform: uppercase;
   color: ${({ color }) => (color ? color : 'black')};
   letter-spacing: normal;

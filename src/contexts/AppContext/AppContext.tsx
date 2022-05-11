@@ -1,13 +1,7 @@
-import {
-  createContext,
-  Dispatch,
-  useContext,
-  useEffect,
-  useReducer
-} from 'react';
-import { IChild } from 'types/common';
+import { createContext, Dispatch, useContext, useEffect, useReducer } from 'react';
 
-import { API_RESULTS, API_URL } from '@constants/api';
+import { IChild } from 'types/common';
+import { API_RESULTS } from '@constants/api';
 
 import { AppStateActions, AppStateDispatchActions } from './appReducerActons';
 import { appStateReducer } from './appStateReducer';

@@ -1,78 +1,52 @@
-import {
-  memo,
-  StrictMode,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState
-} from 'react';
+import { memo } from 'react';
 
-import { BaseLabel, BaseInput, P, SPAN } from '@components/atoms';
-import { Card } from '@components/molecules';
-import {
-  newPasswordRegex,
-  validPassword
-} from '@constants/password-validation';
+import { BaseInput, BaseLabel, H3 } from '@components/atoms';
+
 import { IFormTextInput } from 'types/forms';
+import { newPasswordRegex, validPassword } from '@constants/password-validation';
 
-/**
- * PasswordInput
- * @description - The componentnt works similarly to the TextInput component,
- * the difference is that it won't update the "NewPassword" state
- * until it meets the Regex requirements from "constants/password-validation.ts"
- */
+import { FlexColumn, FlexRow } from '../Container';
+
 const PasswordInput = ({
   id,
+  name,
   label,
   value,
   handleChange,
   placeholder
-}: Required<Omit<IFormTextInput, 'name' | 'required'>>) => {
-  const [password, setPassword] = useState(''); // Once the password is valid, it will be sent
-  const [isValid, setIsValid] = useState(false); // The password is valid if it meets the Regex requirements
-  const passwordInputRef = useRef<HTMLInputElement>(null); // to the parent
-
-  // Purely for setting local password state
-  const localPasswordChange = useCallback(() => {
-    if (passwordInputRef && passwordInputRef.current !== null) {
-      const validated = validPassword(
-        newPasswordRegex,
-        passwordInputRef.current.value
-      );
-      if (!validated) {
-        setIsValid(false);
-      } else {
-        setIsValid(true);
-      }
-      handleChange(passwordInputRef);
-      setPassword(passwordInputRef.current.value);
-    }
-  }, [setPassword]);
-
+}: IFormTextInput) => {
   return (
-    <Card>
-      <BaseLabel htmlFor={id}>
-        {label}
-        <SPAN>{password}</SPAN>
-      </BaseLabel>
-      <StrictMode>
-        <BaseInput
-          border={`${isValid ? 'var(--blue-200)' : 'var(--red-700)'}`}
-          ref={passwordInputRef}
-          type="password"
-          id={id}
-          name={id}
-          onChange={() => localPasswordChange()}
-          value={password}
-          placeholder={placeholder}
-          required
-          autoComplete="off"
-        />
-      </StrictMode>
-    </Card>
+    <FlexColumn
+      position="relative"
+      width="100%"
+      height="auto"
+      margin="0 0 0.5em 0">
+      <FlexRow>
+        <BaseLabel htmlFor={name}>
+          {label}
+          {'        '}
+          <H3 as="span" color="var(--green-700)">
+            {value}
+          </H3>
+        </BaseLabel>
+      </FlexRow>
+      <BaseInput
+        type="password"
+        border={`${
+          validPassword(newPasswordRegex, value)
+            ? 'var(--green-600)'
+            : 'var(--red-700)'
+        }`}
+        id={id}
+        name={name}
+        onChange={(e) => handleChange(e)}
+        value={value}
+        placeholder={placeholder}
+        required
+      />
+    </FlexColumn>
   );
 };
 
-const MemoizedPasswordInput = memo(PasswordInput);
-export { MemoizedPasswordInput as PasswordInput };
+const MemoPasswordInput = memo(PasswordInput);
+export { MemoPasswordInput as PasswordInput };

@@ -12,3 +12,17 @@ export const Button = styled.div`
     color: white;
   }
 `;
+
+export const ButtonSubmit = styled(Button)`
+  font-weight: bold;
+  background-color: var(--blue-500);
+  padding: 0.25em;
+  border: 0;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  & > * {
+    margin: auto;
+  }
+`;

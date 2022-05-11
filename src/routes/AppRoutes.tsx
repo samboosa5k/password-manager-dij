@@ -1,9 +1,8 @@
 import { lazy, Suspense } from 'react';
-
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 const PasswordOverviewPage = lazy(() => import('@pages/PasswordOverview'));
-const AddPasswordPage = lazy(() => import('@pages/AddPassword'));
+const AddPasswordPage = lazy(() => import('@pages/AddPasswordView'));
 
 const AppRoutes = () => {
   return (

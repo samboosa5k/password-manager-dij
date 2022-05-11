@@ -10,6 +10,11 @@ import { ControlBar } from './ControlBar';
 import { PasswordList } from './PasswordList';
 import { IClientContainer } from './types';
 
+/**
+ * The main conainer a client tab and all their passwords
+ * @param param0
+ * @returns
+ */
 export const ClientContainer = ({ client }: IClientContainer) => {
   const { getPasswords } = useLocalPassword();
   const [localPasswords, setLocalPasswords] = useState<ILocalPassword[]>([]);

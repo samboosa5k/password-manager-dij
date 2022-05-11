@@ -1,6 +1,9 @@
 import { ILocalPassword } from 'types/local-storage';
 
-import { IManageLocalPassword } from './types';
+interface IManageLocalPassword {
+  clientKey: string;
+  passwordObj: ILocalPassword;
+}
 
 // Getters and settser
 const getLocalPassword = (clientKey: string) => {
