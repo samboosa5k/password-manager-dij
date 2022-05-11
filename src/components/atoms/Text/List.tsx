@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { ContentText } from '..';
-
 const UL = styled.ul`
   font-size: 0.75em;
   font-weight: 600;

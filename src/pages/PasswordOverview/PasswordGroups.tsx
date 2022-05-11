@@ -1,4 +1,4 @@
-import { Block } from '@components/molecules';
+import { Block, FlexRow } from '@components/molecules';
 import ClientPasswordGroup from '@components/organisms/ClientPasswordGroups';
 
 import { IAppState, IClient } from 'contexts';
@@ -9,11 +9,11 @@ export const ClientPasswordGroupList = ({
   clients
 }: Pick<IAppState, 'clients'>) => {
   return (
-    <Block>
+    <Block maxWidth="512px">
       {isDefined(clients) &&
         clients.length > 0 &&
         clients.map((client: IClient, idx: number) => (
-          <ClientPasswordGroup key={idx} client={client} />
+          <ClientPasswordGroup client={client} />
         ))}
     </Block>
   );
