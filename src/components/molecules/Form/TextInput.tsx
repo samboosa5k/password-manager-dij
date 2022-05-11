@@ -1,8 +1,10 @@
-import { memo, useCallback, useEffect, useRef } from 'react';
+import { memo } from 'react';
 
-import { BaseLabel, BaseInput } from '@components/atoms';
-import { Card } from '@components/molecules';
+import { BaseInput, BaseLabel } from '@components/atoms';
+
 import { IFormTextInput } from 'types/forms';
+
+import { FlexColumn } from '../Container';
 
 const TextInput = ({
   id,
@@ -13,32 +15,23 @@ const TextInput = ({
   placeholder,
   required
 }: IFormTextInput) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const standardInputChange = useCallback(() => {
-    inputRef && inputRef.current !== null && handleChange(inputRef);
-    console.log('ready');
-  }, [handleChange]);
-
-  useEffect(() => {
-    standardInputChange();
-  }, [standardInputChange]);
-
   return (
-    <Card flex="0" padding="4px" margin="auto">
+    <FlexColumn
+      position="relative"
+      width="100%"
+      height="auto"
+      margin="0 0 0.5em 0">
       <BaseLabel htmlFor={name}>{label}</BaseLabel>
       <BaseInput
-        ref={inputRef}
         type="text"
         id={id}
         name={name}
-        onChange={() => standardInputChange()}
+        onChange={(e) => handleChange(e)}
         value={value}
         placeholder={placeholder}
         required={required}
-        autoComplete="off"
       />
-    </Card>
+    </FlexColumn>
   );
 };
 

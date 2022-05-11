@@ -1,25 +1,30 @@
-import styled from 'styled-components';
+import styled, { CSSProperties } from 'styled-components';
 
-export const H1 = styled.h1`
-  font-size: 2em;
-  font-weight: bold;
+type IColor = Pick<CSSProperties, 'color' | 'fontSize' | 'fontWeight'>;
+
+export const H1 = styled.h1<IColor>`
+  font-size: ${({ fontSize }) => fontSize || '1.5em'};
+  font-weight: ${({ fontWeight }) => fontWeight || 'bold'};
   margin: 0;
   text-transform: uppercase;
-  color: var(--purple-700);
+  color: ${({ color }) => (color ? color : 'black')};
+  // letter-spacing: 0.05em;
 `;
 
-export const H2 = styled.h2`
-  font-size: 1.35em;
-  font-weight: bold;
+export const H2 = styled.h2<IColor>`
+  font-size: ${({ fontSize }) => fontSize || '1.25em'};
+  font-weight: ${({ fontWeight }) => fontWeight || 'bold'};
   margin: 0;
   text-transform: uppercase;
-  color: white;
+  color: ${({ color }) => (color ? color : 'black')};
+  // letter-spacing: 0.05em;
 `;
-export const H3 = styled.h3`
-  font-size: 1.35em;
-  font-weight: bold;
-  margin: 0;
-  text-transform: uppercase;
-  color: white;
-  filer: invert(100%);
+
+export const H3 = styled.h3<IColor>`
+  font-size: ${({ fontSize }) => fontSize || '1em'};
+  font-weight: ${({ fontWeight }) => fontWeight || 'bold'};
+  margin: auto;
+  // text-transform: uppercase;
+  color: ${({ color }) => (color ? color : 'black')};
+  letter-spacing: normal;
 `;

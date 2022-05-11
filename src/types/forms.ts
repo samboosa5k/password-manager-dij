@@ -1,6 +1,4 @@
-import { ReactNode } from 'react';
-
-import { FormElemRef } from 'types/events';
+import React, { ChangeEvent, ReactNode } from 'react';
 
 interface IForm {
   id: string;
@@ -15,7 +13,17 @@ interface IFormChild extends IForm {
   name: string;
   label: string;
   value: string;
-  handleChange: (elemRef: FormElemRef) => void;
+  // handleChange: (elemRef: FormElemRef) => void;
+  handleChange: (
+    e: ChangeEvent<
+      | HTMLInputElement
+      | HTMLTextAreaElement
+      | HTMLFormElement
+      | HTMLButtonElement
+      | HTMLSelectElement
+      | HTMLOptionElement
+    >
+  ) => void;
 }
 
 interface IFormDropdown extends IFormChild {

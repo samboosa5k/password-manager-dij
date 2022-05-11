@@ -1,4 +1,4 @@
-export enum FormActions {
+export enum PasswordStateActions {
   UPDATE_CLIENT,
   UPDATE_REFERENCE,
   UPDATE_PASSWORD,
@@ -7,30 +7,30 @@ export enum FormActions {
 }
 
 type UpdateClientAction = {
-  type: FormActions.UPDATE_CLIENT;
+  type: PasswordStateActions.UPDATE_CLIENT;
   payload: string;
 };
 
 type UpdateReferenceAction = {
-  type: FormActions.UPDATE_REFERENCE;
+  type: PasswordStateActions.UPDATE_REFERENCE;
   payload: string;
 };
 
 type UpdatePasswordAction = {
-  type: FormActions.UPDATE_PASSWORD;
+  type: PasswordStateActions.UPDATE_PASSWORD;
   payload: string;
 };
 
 type UpdatePasswordConfirmationAction = {
-  type: FormActions.UPDATE_PASSWORD_CONFIRMATION;
+  type: PasswordStateActions.UPDATE_PASSWORD_CONFIRMATION;
   payload: string;
 };
 
 type ResetFormAction = {
-  type: FormActions.RESET_FORM;
+  type: PasswordStateActions.RESET_FORM;
 };
 
-export type NewPasswordActions =
+export type PasswordDispatchActions =
   | UpdateClientAction
   | UpdateReferenceAction
   | UpdatePasswordAction

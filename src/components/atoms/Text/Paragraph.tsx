@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const P = styled.p`
   font-size: 0.75em;
   font-weight: normal;
-  margin: 0;
   color: var(--gray-900);
+  margin: 0.2em 0;
 `;
 
 export const SPAN = styled.span`

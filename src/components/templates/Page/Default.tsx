@@ -1,12 +1,12 @@
-import { H1, H2 } from '@components/atoms';
-import { Block, BlockFill, FlexColumn } from '@components/molecules/Container';
+import { Block, BlockFill } from '@components/molecules/Container';
+
 import { IChild } from 'types/common';
 
 interface IPageProps extends IChild {
   title: string;
 }
 
-const DefaultPage = ({ children, title }: IPageProps) => {
+const DefaultPage = ({ children }: IPageProps) => {
   return (
     <Block
       position="relative"

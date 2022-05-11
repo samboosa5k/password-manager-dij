@@ -1,2 +1,2 @@
-export * from './AddPassword';
+export * from './AddPasswordView/AddPasswordView';
 export * from './PasswordOverview';

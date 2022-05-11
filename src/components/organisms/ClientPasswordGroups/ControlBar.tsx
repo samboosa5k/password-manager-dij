@@ -1,36 +1,34 @@
 import { H2 } from '@components/atoms';
 import { Block, FlexColumn, FlexRow } from '@components/molecules';
 
-import { useLocalPassword } from '@hooks/useLocalStorage/useLocalStorage';
-import { IClient } from 'contexts';
 import styled from 'styled-components';
-import { ILocalPassword } from 'types/local-storage';
+import { IClient } from 'contexts';
 
 type ControlBarProps = {
   client: IClient;
-  setLocalPasswords: React.Dispatch<React.SetStateAction<ILocalPassword[]>>;
+  handleTogglePasswords: () => void;
 };
 
 const ControlButton = styled(FlexColumn)`
   &:hover {
     cursor: pointer;
+
     & > * {
-      color: var(--green-500)
+      color: var(--green-500);
       transition: color 0.2s ease-in-out;
-  }
+    }
 `;
 
-export const ControlBar = ({ client, setLocalPasswords }: ControlBarProps) => {
-  const { getPasswords } = useLocalPassword();
-  const setLocalPassState = (str: any) => {
-    if (str !== null) {
-      console.log(str);
-      setLocalPasswords(JSON.parse(str));
-    }
-  };
-
+export const ControlBar = ({
+  client,
+  handleTogglePasswords
+}: ControlBarProps) => {
   return (
-    <FlexRow position="relative" width="100%" height="auto">
+    <FlexRow
+      position="relative"
+      width="100%"
+      height="auto"
+      margin="0 0 0.5em 0">
       <Block
         position="relative"
         width="64px"
@@ -51,7 +49,7 @@ export const ControlBar = ({ client, setLocalPasswords }: ControlBarProps) => {
         height="64px"
         backgroundColor="var(--gray-700)"
         //@ts-ignore
-        onClick={() => setLocalPassState(getPasswords(client.name))}>
+        onClick={() => handleTogglePasswords()}>
         <H2
           color="white"
           style={{ lineHeight: 0, margin: 'auto', cursor: 'pointer' }}>

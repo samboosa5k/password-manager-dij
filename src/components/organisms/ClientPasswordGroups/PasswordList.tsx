@@ -1,21 +1,21 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 
 import { nanoid } from 'nanoid';
 import { IClientPasswordList, ILocalPassword } from 'types/local-storage';
 
 import { PasswordRow } from './PasswordRow';
 
-export const PasswordList = ({
-  client,
-  localPasswords
-}: IClientPasswordList) => {
+type PasswordListProps = {
+  localPasswords: ILocalPassword[] | [];
+};
+
+const PasswordList = memo(({ localPasswords }: PasswordListProps) => {
   const [revealIndex, setRevealIndex] = useState<number | null>(null);
 
   const handleReveal = (pswdIdx: number) => {
     if (revealIndex === pswdIdx) {
       setRevealIndex(null);
-    }
-    if (revealIndex !== pswdIdx) {
+    } else {
       setRevealIndex(pswdIdx);
     }
   };
@@ -23,10 +23,9 @@ export const PasswordList = ({
   return (
     <>
       {localPasswords.map((pswd: ILocalPassword, idx: number) => {
-        const uniqueID = `${client}_pass_${nanoid()}`;
         return (
           <PasswordRow
-            key={uniqueID}
+            key={`_pass_${nanoid()}`}
             revealIndex={revealIndex}
             handleReveal={handleReveal}
             pswd={pswd}
@@ -35,4 +34,7 @@ export const PasswordList = ({
       })}
     </>
   );
-};
+});
+
+const MemoizedList = memo(PasswordList);
+export { MemoizedList as PasswordList };
