@@ -1,15 +1,12 @@
-import { useMemo, useRef, useState } from 'react';
+import {useState} from 'react';
 
-import { Block, FlexColumn } from '@components/molecules';
+import {Block, FlexColumn} from '@components/molecules';
+import {ILocalPassword} from 'types/local-storage';
+import {isDefined} from 'utils/value-checks';
 
-import { useLocalPassword } from '@hooks/useLocalStorage/useLocalStorage';
-import { ILocalPassword } from 'types/local-storage';
-import { createImportSpecifier } from 'typescript';
-import { isDefined } from 'utils/value-checks';
-
-import { ControlBar } from './ControlBar';
-import { PasswordList } from './PasswordList';
-import { IClientContainer } from './types';
+import {ControlBar} from './ControlBar';
+import {PasswordList} from './PasswordList';
+import {IClientContainer} from './types';
 
 export const ClientContainer = ({ client }: IClientContainer) => {
   const [localPasswords, setLocalPasswords] = useState<ILocalPassword[]>([]);
@@ -26,7 +23,7 @@ export const ClientContainer = ({ client }: IClientContainer) => {
       )}
 
       {/* The password list */}
-      <Block position="relative">
+      <Block position="relative" backgroundColor="var(--white)">
         <FlexColumn position="relative" width="100%" height="auto">
           <PasswordList client={client.name} localPasswords={localPasswords} />
         </FlexColumn>

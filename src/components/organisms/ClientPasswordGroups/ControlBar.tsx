@@ -5,10 +5,11 @@ import { useLocalPassword } from '@hooks/useLocalStorage/useLocalStorage';
 import { IClient } from 'contexts';
 import styled from 'styled-components';
 import { ILocalPassword } from 'types/local-storage';
+import React, {SetStateAction} from "react";
 
 type ControlBarProps = {
   client: IClient;
-  setLocalPasswords: React.Dispatch<React.SetStateAction<ILocalPassword[]>>;
+  setLocalPasswords: React.Dispatch<SetStateAction<ILocalPassword[]>>;
 };
 
 const ControlButton = styled(FlexColumn)`
