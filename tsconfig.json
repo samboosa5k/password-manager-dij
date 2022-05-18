@@ -19,7 +19,7 @@
     "jsx": "react-jsx",
     "typeRoots": [
       "./node_modules/@types",
-      "./src/types"
+      "./src/@types"
     ],
     "baseUrl": "./src",
     "paths": {
@@ -53,7 +53,7 @@
       "@hooks/*": [
         "hooks/*"
       ],
-      "types/*": [
+      "@types/*": [
         "types/*"
       ],
     }
@@ -62,5 +62,6 @@
     "src",
     "src/*",
     "src/**/*"
-  ]
+  ],
+  "exclude": ["_deprecated/**/*"]
 }

@@ -1,9 +1,14 @@
 import { createRoot } from 'react-dom/client';
-import './theme/index.css';
+import '../_deprecated/theme/index.css';
 
-import App from './App';
+import App from '@components/App/App';
+import AppStateProvider from './context';
 
 const container = document.getElementById('app');
 const root = createRoot(container!);
 
-root.render(<App />);
+root.render(
+  <AppStateProvider>
+    <App />
+  </AppStateProvider>
+);
