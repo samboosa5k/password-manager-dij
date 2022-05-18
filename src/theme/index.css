@@ -1,0 +1,61 @@
+@import url('colors.css');
+/**
+ * RGB TRIPLETS - material pastel colors
+ * Values copied from {@link https://colorswall.com/palette/68}
+ */
+:root {
+  --red-rgb: 244, 67, 54;
+  --red: rgb(var(--red-rgb));
+  --pink-rgb: 232, 30, 99;
+  --pink: rgb(var(--pink-rgb));
+  --purple-rgb: 156, 39, 17;
+  --purple: rgb(var(--purple-rgb));
+  --deep-purple-rgb: 103, 58, 183;
+  --deep-purple: rgb(var(--deep-purple-rgb));
+  --indigo-rgb: 63, 81, 181;
+  --indigo: rgb(var(--indigo-rgb));
+  --blue-rgb: 33, 150, 243;
+  --blue: rgb(var(--blue-rgb));
+  --light-blue-rgb: 3, 169, 244;
+  --light-blue: rgb(var(--light-blue-rgb));
+  --cyan-rgb: 0, 188, 212;
+  --cyan: rgb(var(--cyan-rgb));
+  --teal-rgb: 0, 150, 136;
+  --teal: rgb(var(--teal-rgb));
+  --green-rgb: 76, 175, 80;
+  --green: rgb(var(--green-rgb));
+  --light-green-rgb: 139, 195, 74;
+  --light-green: rgb(var(--light-green-rgb));
+  --lime-rgb: 205, 220, 57;
+  --lime: rgb(var(--lime-rgb));
+  --yellow-rgb: 255, 235, 59;
+  --yellow: rgb(var(--yellow-rgb));
+  --amber-rgb: 255, 193, 7;
+  --amber: rgb(var(--amber-rgb));
+  --orange-rgb: 255, 152, 0;
+  --orange: rgb(var(--orange-rgb));
+  --deep-orange-rgb: 255, 87, 34;
+  --deep-orange: rgb(var(--deep-orange-rgb));
+  --brown-rgb: 121, 85, 72;
+  --brown: rgb(var(--brown-rgb));
+  --black-rgb: 0, 0, 0;
+  --black: rgb(var(--black-rgb));
+  --white-rgb: 255, 255, 255;
+  --white: rgb(var(--white-rgb));
+}
+
+body {
+  position: relative;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+#app {
+  display: flex;
+  height: 100%;
+}

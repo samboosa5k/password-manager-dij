@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import '../_deprecated/theme/index.css';
+import 'theme/index.css';
 
 import App from '@components/App/App';
 import AppStateProvider from './context';

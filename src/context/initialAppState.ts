@@ -9,7 +9,7 @@ export interface IClient {
 export type IClientList = IClient[];
 
 export interface IAppState {
-  loaded: Boolean3;
+  loaded: boolean;
   clients: IClientList; // from pastebin fetch
   activeData: {
     client: string;
@@ -18,7 +18,7 @@ export interface IAppState {
 }
 
 const initialAppState: IAppState = {
-  loaded: 0,
+  loaded: false,
   clients: [],
   activeData: {
     client: '',

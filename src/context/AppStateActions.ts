@@ -1,16 +1,25 @@
 import { ILocalPassword } from '../@types/local-storage';
-import { Boolean3 } from '../@types/common';
+
 
 export enum AppStateActions {
+  INIT_APP,
   UPDATE_STATUS,
   SET_LOADED_CLIENTS,
   SET_ACTIVE_CLIENT,
   LOAD_LOCAL_PASSWORDS
 }
 
+type InitAppAction = {
+  type: AppStateActions.INIT_APP;
+  payload: {
+    loaded: boolean;
+    clients: any[];
+  };
+};
+
 type UpdateStatusAction = {
   type: AppStateActions.UPDATE_STATUS;
-  payload: Boolean3;
+  payload: boolean;
 };
 
 type SetLoadedClientsAction = {
@@ -32,6 +41,7 @@ type SetLocalPasswordsAction = {
 };
 
 export type AppStateDispatchActions =
+  | InitAppAction
   | UpdateStatusAction
   | SetLoadedClientsAction
   | SetActiveClientAction
